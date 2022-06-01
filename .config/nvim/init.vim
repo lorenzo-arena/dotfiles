@@ -19,6 +19,15 @@ set incsearch
 " Needed to copy to cliboard when yanking
 set clipboard+=unnamedplus
 
+" Set tab mode for file type
+autocmd FileType proto setlocal shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType c setlocal shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType cpp setlocal shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType cc setlocal shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType h setlocal shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType py setlocal shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType c setlocal shiftwidth=4 softtabstop=4 expandtab
+
 call plug#begin()
 
 Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
@@ -48,6 +57,11 @@ inoremap jk <ESC>
 
 nnoremap <C-p> <cmd>lua require('fzf-lua').files()<CR>
 nnoremap <C-f> <cmd>lua require('fzf-lua').lines()<CR>
+nnoremap <C-g> <cmd>lua require('fzf-lua').grep()<CR>
+
+nnoremap <C-n> :tabnew<CR>
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
 
 " Set ' as the leader key for shortcuts
 let mapleader = "'"
